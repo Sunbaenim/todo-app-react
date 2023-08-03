@@ -1,0 +1,12 @@
+.toast-modal {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 2rem;
+    border-radius: 0.5rem;
+}

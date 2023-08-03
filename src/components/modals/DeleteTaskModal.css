@@ -1,0 +1,24 @@
+.modal-content > p > span:first-child {
+    margin-top: 0.7rem;
+}
+
+.modal-content > p > span {
+    display: block;
+    margin: 0.3rem 0;
+}
+
+.delete-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.delete-options > div {
+    padding: 0.5rem;
+}
+
+.delete-options > div:nth-child(2) {
+    background-color: #aa1616;
+    color: white;
+    border-radius: 0.25rem;
+}

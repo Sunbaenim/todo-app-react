@@ -1,0 +1,68 @@
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    min-height: 5rem;
+}
+
+.main-container {
+    overflow: hidden;
+}
+
+.task-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+
+.task-desc {
+    font-size: 0.875rem;
+}
+
+.options-container {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.settings-container {
+    position: relative;
+}
+
+.info-image,
+.settings-image,
+.edit-image,
+.delete-image,
+.completed-image,
+.square {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+}
+
+.square {
+    border: 1px solid #000;
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 40em) {
+    .task {
+        padding: 0 10rem;
+    }
+}
+
+@media (min-width: 65em) {
+    .task {
+        padding: 0 20rem;
+    }
+}
+
+@media (min-width: 90em) {
+    .task {
+        padding: 0 30rem;
+    }
+}

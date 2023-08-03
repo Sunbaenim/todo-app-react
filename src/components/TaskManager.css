@@ -1,0 +1,37 @@
+.tasks-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    height: 4rem;
+    border-bottom: 1px solid #666;
+    box-shadow: 0 2px 4px #00000022;
+}
+
+.tasks-nav .nav-active {
+    border-bottom: 2px solid black;
+}
+
+.tasks-nav > div {
+    cursor: pointer;
+}
+
+.add-task-container {
+    position: fixed;
+    bottom: 3rem;
+    right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: #4a98fd;
+    border: 1px solid #3c91ff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px 5px #00000022;
+}
+
+.add-task-container > span {
+    color: white;
+    font-size: 3rem;
+}
