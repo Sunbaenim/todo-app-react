@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/todo-app-react/static/css/main.892d9d6b.css",
-    "main.js": "/todo-app-react/static/js/main.fe04da39.js",
+    "main.js": "/todo-app-react/static/js/main.199d361d.js",
     "static/media/settings.svg": "/todo-app-react/static/media/settings.0a7f7bec22703d9f8cd557b75583853c.svg",
     "static/media/edit.svg": "/todo-app-react/static/media/edit.7c8e33752380b6a000236a8492b97f0d.svg",
     "static/media/info.svg": "/todo-app-react/static/media/info.2be58c053a6eab0faf5f69539b99e2d1.svg",
@@ -10,10 +10,10 @@
     "static/media/close.svg": "/todo-app-react/static/media/close.2d4dbb69b3cce89700e87ca773715b21.svg",
     "index.html": "/todo-app-react/index.html",
     "main.892d9d6b.css.map": "/todo-app-react/static/css/main.892d9d6b.css.map",
-    "main.fe04da39.js.map": "/todo-app-react/static/js/main.fe04da39.js.map"
+    "main.199d361d.js.map": "/todo-app-react/static/js/main.199d361d.js.map"
   },
   "entrypoints": [
     "static/css/main.892d9d6b.css",
-    "static/js/main.fe04da39.js"
+    "static/js/main.199d361d.js"
   ]
 }
