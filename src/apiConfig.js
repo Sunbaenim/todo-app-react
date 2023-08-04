@@ -1,3 +1,3 @@
-const apiUrlTask = 'https://quaint-fox-poncho.cyclic.cloud/task/';
+const apiUrlTask = 'https://colorful-vest-cow.cyclic.app/task/';
 
 export default apiUrlTask;

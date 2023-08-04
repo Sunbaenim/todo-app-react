@@ -10,59 +10,52 @@ const TaskManager = () => {
 
     const [tasksInProgress, setTasksInProgress] = useState([]);
     const [finishedTasks, setFinishedTasks] = useState([]);
-    
     const [isShowTasksInProgress, setIsShowTasksInProgress] = useState(true);
-
-    const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false);
-
-    const [isToastOpen, setIsToastOpen] = useState(false);
-    const [toastMessage, setToastMessage] = useState('');
-    const [toastColor, setToastColor] = useState('');
 
     const fetchTasksInProgress = async () => {
         try {
             const response = await axios.get(apiUrlTask + '?isFinished=false');
             setTasksInProgress(response.data.data);
         } catch (error) {
-            handleToastModal('Une erreur est survenue.', 'red');
+            console.error(error);
         }
     }
-
+    
     const fetchFinishedTasks = async () => {
         try {
             const response = await axios.get(apiUrlTask + '?isFinished=true');
             setFinishedTasks(response.data.data);
         } catch (error) {
-            handleToastModal('Une erreur est survenue.', 'red');
+            console.error(error);
         }
     }
 
-    const handleIsAddTaskOpenClick = () => {
-        setIsAddTaskModalOpen(!isAddTaskModalOpen);
-    }
+    const fetchTasks = async () => {
+        await fetchTasksInProgress();
+        await fetchFinishedTasks();
+    };
 
     useEffect(() => {
-        const fetchTasks = () => {
-            if (isShowTasksInProgress) {
-                fetchTasksInProgress();
-            } else {
-                fetchFinishedTasks();
-            }
-        };
         fetchTasks();
-    });
+    }, []);
 
-    const handleTaskUpdate = () => {
-        if (isShowTasksInProgress) {
-            fetchTasksInProgress();
-        } else {
-            fetchFinishedTasks();
-        }
+    const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false);
+
+    const handleOpenAddTask = () => {
+        setIsAddTaskModalOpen(!isAddTaskModalOpen);
     }
 
     const handleTabTypeClick = (isTabInProgress) => {
         isTabInProgress ? setIsShowTasksInProgress(true) : setIsShowTasksInProgress(false);
     }
+
+    const handleTaskUpdate = () => {
+        fetchTasks();
+    }
+
+    const [isToastOpen, setIsToastOpen] = useState(false);
+    const [toastMessage, setToastMessage] = useState('');
+    const [toastColor, setToastColor] = useState('');
 
     const handleToastModal = (message, color = 'green') => {
         setIsToastOpen(true);
@@ -85,15 +78,16 @@ const TaskManager = () => {
                 </div>
             </div>
             <TaskList tasks={isShowTasksInProgress ? tasksInProgress : finishedTasks} onTaskUpdate={handleTaskUpdate} handleToastModal={handleToastModal} />
-            <AddTaskModal isOpen={isAddTaskModalOpen} handleModal={handleIsAddTaskOpenClick} onTaskUpdate={handleTaskUpdate} handleToastModal={handleToastModal }/>
+            <AddTaskModal isOpen={isAddTaskModalOpen} handleModal={handleOpenAddTask} onTaskUpdate={handleTaskUpdate} handleToastModal={handleToastModal }/>
             {!isAddTaskModalOpen && (
-                <div className='add-task-container' onClick={handleIsAddTaskOpenClick}>
+                <div className='add-task-container' onClick={handleOpenAddTask}>
                     <span>+</span>
                 </div>
             )}
             <ToastModal isOpen={isToastOpen} message={toastMessage} color={toastColor} />
         </div>
     );
+    
 }
 
 export default TaskManager;
